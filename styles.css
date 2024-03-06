@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .workflow {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .workflow-button {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1rem;
+    color: white;
+    position: relative;
+    background-color: #748c8b; /* Example pastel color */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .workflow-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .workflow-button:not(:disabled):active {
+    background-color: #3b4f4e; /* Darker shade for click effect */
+  }
+  
+  .tooltip {
+    font-size: 7pt;
+    display: none;
+    width: 200px; /* Adjust based on your tooltip text length */
+    background-color: black;
+    color: white;
+    text-align: top;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: -75%; /* Aligns the tooltip's bottom edge with the top edge of the button */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px); /* Centers the tooltip and moves it up a bit */
+    white-space: nowrap; /* Prevents the tooltip text from wrapping */
+  }
+  
+  .workflow-button-container {
+    display: inline-block; /* or "block" depending on your layout */
+    position: relative; /* Establishes a new positioning context */
+    /* Ensure there's enough space for the tooltip */
+    margin-bottom: 5px; /* Adjust as needed */
+  }
+  
+  .workflow-button-container:hover .tooltip {
+    display: block;
+  }
+  
+  .text-action {
+    font-weight: bold; 
+    font-style: bold; 
+  }
+  
+  /* Add this new class for the cooldown effect */
+  .workflow-button.on-cooldown {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .workflow-button.on-cooldown::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(132, 140, 140, 0.5); /* Or any other color you wish to indicate cooldown */
+    animation: fillCooldown 20s linear forwards;
+  }
+  
+  
+  
+  @keyframes fillCooldown {
+    100% {
+      width: 0%;
+    }
+    0% {
+      width: 100%;
+    }
+  }
+  /* Cooldown class for action-word */
+  .action-word.cooldown {
+    /* Styling for the cooldown state, e.g., lighter color */
+    color: #999;
+  }
+  
+  
+  .notification {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: green; /* Default background color */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification.error {
+    background-color: red;
+  }
+  
+  
