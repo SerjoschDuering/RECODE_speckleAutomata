@@ -55,6 +55,23 @@
       </button>
       <span class="tooltip">Generates full attr.Metadata table <br> for activitiy nodes (notion)</span>
   </div>
+
+    
+  <div class="workflow-container">
+    <h3>Public Spaces Workflow</h3>
+    <div class="workflow" id="activity-nodes-workflow">
+      <div class="workflow-button-container">
+        <button class="workflow-button" data-cooldown="20" data-action="update-segment" id="push-to-dashboard-public-space"
+                data-endpoint="https://serjd-speckleclonebranch-wconditions.hf.space/webhooks/update_streams" 
+                data-stream-name="2B_U100_batch" 
+                data-branch-name="analysis_results/default+public_spaces">
+          <span class="text-action">push to</span> dashboard public spaces
+        </button>
+        <span class="tooltip">Copies analysis/default+public_spaces branch <br> to dashboard/public_spaces branch. Generates metadata from notion table.</span>
+    </div>
+  </div>
+  
+  
     
     <!-- Add more buttons here -->
   </div>
