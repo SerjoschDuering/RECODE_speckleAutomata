@@ -1,100 +1,106 @@
 body {
-  font-family: 'Arial', sans-serif;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Reduced gap */
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adjusted for a more compact layout */
 }
 
 h3 {
-  font-size: 14px; /* Smaller headlines */
+    font-size: 14px; /* Adjusted for smaller headings */
 }
 
 .workflow {
-  display: flex;
-  gap: 15px; /* Reduced gap */
+    display: flex;
+    gap: 15px; /* Adjusted for a more compact layout */
 }
 
 .workflow-button {
-  border: none;
-  border-radius: 8px; /* Slightly smaller radius */
-  padding: 15px; /* Reduced padding */
-  font-size: 0.9rem; /* Smaller text */
-  color: white;
-  position: relative;
-  background-color: #748c8b; /* Example pastel color */
-  cursor: pointer;
-  transition: background-color 0.3s;
+    border: none;
+    border-radius: 8px; /* Slightly smaller radius */
+    padding: 15px; /* Reduced padding for a smaller button */
+    font-size: 0.9rem; /* Smaller text size */
+    color: white;
+    position: relative;
+    background-color: #748c8b; /* Example pastel color */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .workflow-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 .workflow-button:not(:disabled):active {
-  background-color: #3b4f4e; /* Darker shade for click effect */
+    background-color: #3b4f4e; /* Darker shade for click effect */
 }
 
 .tooltip {
-  font-size: 6pt; /* Smaller font size */
-  display: none;
-  width: 180px; /* Slightly narrower */
-  background-color: black;
-  color: white;
-  text-align: top;
-  border-radius: 5px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: -100%; /* Adjusted for smaller size */
-  left: 50%;
-  transform: translateX(-50%) translateY(-10px);
-  white-space: nowrap;
+    font-size: 6pt; /* Smaller font size for tooltips */
+    display: none;
+    width: 180px; /* Adjusted for a more compact tooltip */
+    background-color: black;
+    color: white;
+    text-align: top;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: -100%; /* Adjusted to position the tooltip correctly */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    white-space: nowrap;
 }
 
 .workflow-button-container {
-  display: inline-block;
-  position: relative;
-  margin-bottom: 3px; /* Reduced space for tooltip */
+    display: inline-block;
+    position: relative;
+    margin-bottom: 3px; /* Adjusted to ensure enough space for the tooltip */
 }
 
 .workflow-button-container:hover .tooltip {
-  display: block;
+    display: block;
 }
 
 .text-action {
-  font-weight: bold;
+    font-weight: bold;
 }
 
-/* Cooldown effects adjusted for consistency */
+/* Restored the original animation pattern for the cooldown effect */
 .workflow-button.on-cooldown::after {
-  background-color: rgba(132, 140, 140, 0.5);
-  animation: fillCooldown 20s linear forwards;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(132, 140, 140, 0.5);
+    animation: fillCooldown 20s linear forwards;
 }
 
 @keyframes fillCooldown {
-  to {
-    width: 0%;
-  }
-  from {
-    width: 100%;
-  }
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
 }
 
 .notification {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: green;
-  color: white;
-  padding: 10px; /* Slightly less padding */
-  border-radius: 5px;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: green; /* Default background color */
+    color: white;
+    padding: 10px; /* Slightly less padding */
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .notification.error {
-  background-color: red;
+    background-color: red;
 }
